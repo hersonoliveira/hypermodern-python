@@ -1,5 +1,5 @@
-import requests
 import pytest
+import requests
 
 from hypermodern_python import console, wikipedia
 
