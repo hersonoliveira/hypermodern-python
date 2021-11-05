@@ -4,7 +4,7 @@ import nox
 
 
 locations = "src", "tests", "noxfile.py"
-nox.options.sessions = "lint", "mypy", "tests"
+nox.options.sessions = "lint", "mypy", "pytype", "tests"
 
 
 @nox.session(python=["3.8", "3.7"])
@@ -59,6 +59,13 @@ def mypy(session):
     args = session.posargs or locations
     install_with_constraints(session, "mypy")
     session.run("mypy", "--install-types", "--non-interactive", *args)
+
+
+@nox.session(python="3.8")
+def pytype(session):
+    args = session.posargs or ["--disable=import-error", *locations]
+    install_with_constraints(session, "pytype")
+    session.run("pytype", *args)
 
 
 def install_with_constraints(session, *args, **kwargs):
