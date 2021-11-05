@@ -11,6 +11,8 @@ readme = "README.md"
 python = "^3.8"
 click = "^8.0.3"
 requests = "^2.26.0"
+desert = "^2020.11.18"
+marshmallow = "^3.14.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

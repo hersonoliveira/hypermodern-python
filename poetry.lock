@@ -10,7 +10,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "attrs"
 version = "21.2.0"
 description = "Classes Without Boilerplate"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -113,6 +113,23 @@ tomli = {version = "*", optional = true, markers = "extra == \"toml\""}
 
 [package.extras]
 toml = ["tomli"]
+
+[[package]]
+name = "desert"
+version = "2020.11.18"
+description = "Deserialize to objects while staying DRY"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+attrs = "*"
+marshmallow = ">=3.0"
+typing-inspect = "*"
+
+[package.extras]
+dev = ["coverage", "cuvner", "marshmallow-enum", "marshmallow-union", "pytest", "pytest-cov", "pytest-sphinx", "pytest-travis-fold", "tox", "importlib-metadata", "versioneer", "black", "pylint", "pex", "bump2version", "docutils", "check-manifest", "readme-renderer", "pygments", "isort", "mypy", "towncrier", "twine", "wheel"]
+test = ["coverage", "cuvner", "marshmallow-enum", "marshmallow-union", "pytest", "pytest-cov", "pytest-sphinx", "pytest-travis-fold", "tox", "importlib-metadata"]
 
 [[package]]
 name = "dparse"
@@ -274,6 +291,20 @@ typing-inspect = ">=0.4.0"
 dev = ["black (==20.8b1)", "coverage (>=4.5.4)", "fixit (==0.1.1)", "flake8 (>=3.7.8)", "hypothesis (>=4.36.0)", "hypothesmith (>=0.0.4)", "jupyter (>=1.0.0)", "nbsphinx (>=0.4.2)", "prompt-toolkit (>=2.0.9)", "pyre-check (==0.9.3)", "setuptools-scm (>=6.0.1)", "sphinx-rtd-theme (>=0.4.3)", "tox (>=3.18.1)", "ufmt (==1.2)", "usort (==0.6.3)"]
 
 [[package]]
+name = "marshmallow"
+version = "3.14.0"
+description = "A lightweight library for converting complex datatypes to and from native Python datatypes."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+dev = ["pytest", "pytz", "simplejson", "mypy (==0.910)", "flake8 (==4.0.1)", "flake8-bugbear (==21.9.2)", "pre-commit (>=2.4,<3.0)", "tox"]
+docs = ["sphinx (==4.2.0)", "sphinx-issues (==1.2.0)", "alabaster (==0.7.12)", "sphinx-version-warning (==1.1.2)", "autodocsumm (==0.2.7)"]
+lint = ["mypy (==0.910)", "flake8 (==4.0.1)", "flake8-bugbear (==21.9.2)", "pre-commit (>=2.4,<3.0)"]
+tests = ["pytest", "pytz", "simplejson"]
+
+[[package]]
 name = "mccabe"
 version = "0.6.1"
 description = "McCabe checker, plugin for flake8"
@@ -302,7 +333,7 @@ python2 = ["typed-ast (>=1.4.0,<1.5.0)"]
 name = "mypy-extensions"
 version = "0.4.3"
 description = "Experimental type system extensions for programs checked with the mypy typechecker."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -596,7 +627,7 @@ python-versions = "*"
 name = "typing-extensions"
 version = "3.10.0.2"
 description = "Backported and Experimental Type Hints for Python 3.5+"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -604,7 +635,7 @@ python-versions = "*"
 name = "typing-inspect"
 version = "0.7.1"
 description = "Runtime inspection utilities for typing module."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -628,7 +659,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "b5e9b6cd18fb544c2017b5240a2e71d34ad60bd563f2a0cb2103e2deb0b33158"
+content-hash = "feaaf8bb98af62b064d92c408b68ba6a6b2f3c531a0e5f3ee0d526a75a2778c5"
 
 [metadata.files]
 atomicwrites = [
@@ -711,6 +742,10 @@ coverage = [
     {file = "coverage-6.1.1-pp38-none-any.whl", hash = "sha256:4cd919057636f63ab299ccb86ea0e78b87812400c76abab245ca385f17d19fb5"},
     {file = "coverage-6.1.1.tar.gz", hash = "sha256:b8e4f15b672c9156c1154249a9c5746e86ac9ae9edc3799ee3afebc323d9d9e0"},
 ]
+desert = [
+    {file = "desert-2020.11.18-py3-none-any.whl", hash = "sha256:6392702be7952fb9c8bbc775425fa929c1eab5c06552c2890e82a24964eeb084"},
+    {file = "desert-2020.11.18.tar.gz", hash = "sha256:d7b7fb521dc84eec955a766ed7e37349f998cf047f37fd9596cb09737d63c62d"},
+]
 dparse = [
     {file = "dparse-0.5.1-py3-none-any.whl", hash = "sha256:e953a25e44ebb60a5c6efc2add4420c177f1d8404509da88da9729202f306994"},
     {file = "dparse-0.5.1.tar.gz", hash = "sha256:a1b5f169102e1c894f9a7d5ccf6f9402a836a5d24be80a986c7ce9eaed78f367"},
@@ -760,6 +795,10 @@ iniconfig = [
 libcst = [
     {file = "libcst-0.3.21-py3-none-any.whl", hash = "sha256:a9c6fea4fa3bf92f87e40c6850dec099aaa7aaf963a934c763844544b32d3a1e"},
     {file = "libcst-0.3.21.tar.gz", hash = "sha256:4302a8f09cd9e5ab5962f8e126d032bba98541893dd38cce6b4770969fed059d"},
+]
+marshmallow = [
+    {file = "marshmallow-3.14.0-py3-none-any.whl", hash = "sha256:6d00e42d6d6289f8cd3e77618a01689d57a078fe324ee579b00fa206d32e9b07"},
+    {file = "marshmallow-3.14.0.tar.gz", hash = "sha256:bba1a940985c052c5cc7849f97da196ebc81f3b85ec10c56ef1f3228aa9cbe74"},
 ]
 mccabe = [
     {file = "mccabe-0.6.1-py2.py3-none-any.whl", hash = "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42"},
